@@ -1,0 +1,511 @@
+/* ==========================================================
+   style.css - Portfolio Chuyên Nghiệp (Mobile-First + Dark Mode + CSS Grid)
+   Tác giả: Trần Thanh Phát
+   ========================================================== */
+
+/* ----- 1. Biến màu Light Mode & Dark Mode ----- */
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface-alt: #eef3fa;
+  --text: #1e293b;
+  --text-muted: #475569;
+  --primary: #1f3a5f;
+  --primary-light: #2b5083;
+  --accent: #f59e0b;
+  --teal: #0d9488;
+  --border: #cbd5e1;
+  --shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+  --nav-bg: rgba(31, 58, 95, 0.96);
+}
+
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #273549;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --primary: #38bdf8;
+  --primary-light: #0284c7;
+  --accent: #fbbf24;
+  --teal: #2dd4bf;
+  --border: #334155;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --nav-bg: rgba(15, 23, 42, 0.96);
+}
+
+/* ----- 2. Reset & Mobile-First Base ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.65;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ----- 3. Thanh điều hướng (Mobile-First Navigation) ----- */
+.navbar {
+  background: var(--nav-bg);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.brand img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.theme-btn,
+.menu-btn {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.theme-btn:hover,
+.menu-btn:hover {
+  background: var(--accent);
+  color: #0f172a;
+}
+
+/* Menu trên mobile: ẩn mặc định, mở khi bấm nút Menu */
+.nav-links {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  gap: 0.35rem;
+}
+
+.nav-links.open {
+  display: flex;
+}
+
+.nav-links a {
+  color: #e2e8f0;
+  font-weight: 500;
+  padding: 0.6rem 0.85rem;
+  border-radius: 6px;
+  transition: background 0.25s, color 0.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--accent);
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* ----- 4. Header / Hero Section ----- */
+.hero {
+  background: linear-gradient(135deg, #1f3a5f 0%, #0f172a 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 3rem 1.25rem;
+}
+
+.avatar-frame {
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.avatar-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero h1 {
+  font-size: 1.75rem;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.hero .subtitle {
+  color: #cbd5e1;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0f172a;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.btn-outline:hover {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+/* ----- 5. Main Content & Sections ----- */
+main {
+  flex: 1;
+  padding: 2.25rem 0;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  font-size: 1.45rem;
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 3px solid var(--accent);
+  display: inline-block;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow);
+  transition: background-color 0.3s, border-color 0.3s, transform 0.25s;
+}
+
+.card h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+}
+
+.card p {
+  color: var(--text-muted);
+}
+
+/* ----- 6. CSS Grid cho trang Projects (6 dự án - Mobile First: 1 cột) ----- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--teal);
+  border-radius: 12px;
+  padding: 1.4rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.16);
+}
+
+.project-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--surface-alt);
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.project-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.project-card p {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tags span {
+  font-size: 0.78rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  background: var(--surface-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.project-link {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--teal);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* ----- 7. About Info & Skills ----- */
+.info-list {
+  list-style: none;
+}
+
+.info-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.info-list li:last-child {
+  border-bottom: none;
+}
+
+.skill-item {
+  margin-bottom: 1rem;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.skill-track {
+  width: 100%;
+  height: 12px;
+  background: var(--surface-alt);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--primary));
+  border-radius: 999px;
+}
+
+/* ----- 8. Contact Form (Formspree HTML) ----- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.98rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
+}
+
+/* ----- 9. Scroll Animation (Intersection Observer) ----- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----- 10. Footer ----- */
+footer {
+  background: #0f172a;
+  color: #cbd5e1;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.92rem;
+  border-top: 1px solid #1e293b;
+}
+
+/* ==========================================================
+   RESPONSIVE BREAKPOINTS (Mobile-First -> Tablet -> Desktop)
+   ========================================================== */
+
+/* Tablet (>= 640px) */
+@media (min-width: 640px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+  }
+
+  /* Grid 2 cột trên Tablet */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop (>= 900px) */
+@media (min-width: 900px) {
+  .menu-btn {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    width: auto;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    gap: 0.5rem;
+  }
+
+  .nav-actions {
+    order: 3;
+  }
+
+  /* Grid 3 cột (6 dự án = 2 hàng x 3 cột) trên Desktop */
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1.4fr;
+  }
+}

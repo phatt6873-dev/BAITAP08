@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ — Trần Thanh Phát</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="Logo Trần Thanh Phát">
+        <span>ThanhPhat.dev</span>
+      </a>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-btn" type="button" aria-label="Chuyển đổi giao diện Sáng/Tối">🌙 Dark</button>
+        <button id="menuToggle" class="menu-btn" type="button" aria-label="Mở menu">☰ Menu</button>
+      </div>
+
+      <div id="navLinks" class="nav-links">
+        <a href="index.html" >Trang chủ</a>
+        <a href="about.html" >Giới thiệu</a>
+        <a href="projects.html" >Dự án (Projects)</a>
+        <a href="contact.html" class="active">Liên hệ</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="avatar-frame reveal">
+        <img src="images/avatar.jpg" alt="Ảnh chân dung Trần Thanh Phát">
+      </div>
+      <h1 class="reveal">Liên hệ với mình</h1>
+      <p class="subtitle reveal">Gửi lời nhắn trực tiếp qua Formspree hoặc kết nối qua email sinh viên</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section reveal">
+      <h2 class="section-title">Kết nối &amp; Gửi tin nhắn</h2>
+
+      <div class="contact-grid">
+        <!-- Cột thông tin liên hệ -->
+        <div class="card">
+          <h3>Thông tin trực tiếp</h3>
+          <ul class="info-list">
+            <li><strong>Họ tên:</strong> Trần Thanh Phát</li>
+            <li><strong>Email VHU:</strong> phat241A010063@st.vhu.edu.vn</li>
+            <li><strong>Trường:</strong> Đại học Văn Hiến (Q.12)</li>
+            <li><strong>Địa chỉ:</strong> Bà Điểm, Hóc Môn, TP.HCM</li>
+          </ul>
+        </div>
+
+        <!-- Form liên hệ chỉ dùng HTML + Formspree.io -->
+        <div class="card">
+          <h3>Gửi tin nhắn (Formspree HTML)</h3>
+          <!-- Thay 'your-form-id' bằng mã Form ID miễn phí của bạn trên https://formspree.io -->
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="form-group">
+              <label for="name">Họ và tên của bạn</label>
+              <input type="text" id="name" name="name" placeholder="Nhập họ tên..." required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Địa chỉ Email</label>
+              <input type="email" id="email" name="email" placeholder="tenban@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Chủ đề</label>
+              <input type="text" id="subject" name="subject" placeholder="Trao đổi học tập / Dự án..." required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Nội dung lời nhắn</label>
+              <textarea id="message" name="message" rows="4" placeholder="Viết nội dung tin nhắn tại đây..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Gửi tin nhắn qua Formspree</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Trần Thanh Phát — Sinh viên năm 3 CNTT, Đại học Văn Hiến</p>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
